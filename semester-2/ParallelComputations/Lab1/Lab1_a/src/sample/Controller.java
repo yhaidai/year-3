@@ -113,6 +113,8 @@ public class Controller {
 
         thread1 = new Thread(increaseCounter);
         thread2 = new Thread(decreaseCounter);
+        thread1.setDaemon(true);
+        thread2.setDaemon(true);
     }
 
     private void initButtonClicks() {
