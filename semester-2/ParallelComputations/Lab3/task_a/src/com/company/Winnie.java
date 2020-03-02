@@ -1,6 +1,6 @@
 package com.company;
 
-public class Winnie implements Runnable{
+public class Winnie implements Runnable {
     HoneyPot pot;
     volatile boolean sleep;
 
@@ -9,9 +9,10 @@ public class Winnie implements Runnable{
         sleep = true;
     }
 
-    public void wakeUp() {
+    public synchronized void wakeUp() {
         System.out.println("Good morning, bees!");
         sleep = false;
+        notify();
     }
 
     public void eatHoney() {
@@ -20,11 +21,16 @@ public class Winnie implements Runnable{
         sleep = true;
     }
 
-    public void run() {
+    public synchronized void run() {
         while (true) {
-            if (!sleep) {
-                eatHoney();
+            while (sleep) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
+            eatHoney();
         }
     }
 }
