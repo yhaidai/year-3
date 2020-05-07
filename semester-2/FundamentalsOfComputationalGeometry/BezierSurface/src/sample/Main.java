@@ -34,7 +34,6 @@ public class Main extends Application {
         Point.setWindowHeight(HEIGHT);
         List<Point> points = points();
 
-
         PointLight pointLight = new PointLight();
         pointLight.setColor(Color.WHITE);
 
@@ -42,8 +41,6 @@ public class Main extends Application {
         root.getChildren().add(pointLight);
         root.getChildren().addAll(SurfaceInterpolator.buildBezierSurface(points2x4()));
         root.getChildren().addAll(points);
-//        root.getChildren().addAll(pointsCentered());
-//        root.getChildren().addAll(SurfaceInterpolator.buildBezierSurface(points2x4Centered()));
 
         Camera camera = new PerspectiveCamera();
         camera.setTranslateX(-600);
@@ -140,19 +137,6 @@ public class Main extends Application {
         ));
     }
 
-    private List<Point> pointsCentered() {
-        return new ArrayList<>(Arrays.asList(
-                new Point(-400, 300, -100, Color.GREEN),
-                new Point(-300, 2000, -200, Color.GREEN),
-                new Point(-200, 100, 0, Color.GREEN),
-                new Point(-100, 300, -100, Color.GREEN),
-                new Point(0, 0, 0, Color.GREEN),
-                new Point(100, 0, -200, Color.GREEN),
-                new Point(200, 200, 100, Color.GREEN),
-                new Point(400, 0, 100, Color.GREEN)
-        ));
-    }
-
     private List<List<Point>> points2x4() {
         List<List<Point>> points = new ArrayList<>();
 
@@ -167,25 +151,6 @@ public class Main extends Application {
                 new Point(600, 400, 0, Color.GREEN),
                 new Point(700, 300, 300, Color.GREEN),
                 new Point(900, 100, 300, Color.GREEN)
-        )));
-
-        return points;
-    }
-
-    private List<List<Point>> points2x4Centered() {
-        List<List<Point>> points = new ArrayList<>();
-
-        points.add(new ArrayList<>(Arrays.asList(
-                new Point(-400, 150, -50, Color.GREEN),
-                new Point(-300, 50, -150, Color.GREEN),
-                new Point(-200, -50, 50, Color.GREEN),
-                new Point(-100, 150, -50, Color.GREEN)
-        )));
-        points.add(new ArrayList<>(Arrays.asList(
-                new Point(0, -150, 50, Color.GREEN),
-                new Point(100, -150, -150, Color.GREEN),
-                new Point(200, 50, 150, Color.GREEN),
-                new Point(400, -150, 150, Color.GREEN)
         )));
 
         return points;
