@@ -29,9 +29,10 @@ public class StripGraph extends Graph<Node> {
 
             printStripEdges(edges, stripIndex);
 
-            if (point.getX() < edges.get(0).getStart().getX()) {
+            if (point.getX() < Math.min(edges.get(0).getStart().getX(), edges.get(0).getEnd().getX())) {
                 System.out.println("Point lies to the left from the graph");
-            } else if (point.getX() > edges.get(edges.size() - 1).getStart().getX()){
+            } else if (point.getX() > Math.max(edges.get(edges.size() - 1).getStart().getX(),
+                    edges.get(edges.size() - 1).getEnd().getX())) {
                 System.out.println("Point lies to the right from the graph");
             } else {
                 int trapezeIndex = binarySearchTrapeze(point, edges, 0, edges.size() - 1);
