@@ -1,0 +1,1 @@
+For a given set S of n points build simple polygon of minimal area approximated by non-uniform B-spline.
