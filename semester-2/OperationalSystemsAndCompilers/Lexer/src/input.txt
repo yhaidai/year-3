@@ -1,0 +1,23 @@
+from some_import import some_entity as some_shorthand
+
+class SomeClass(SomeBaseClass):
+"""
+Multi-line string text!
+"""
+    def some_func(some_param):
+        try:
+            some_variable = 5
+            if some_variable == 6:
+                print(some_variable)
+                a = 4
+                # comment text!
+                b += ~a >> 1
+                c <<= b
+                d **= c ** a
+                f //= b // d
+            some_literal = 'Hello world'
+            other_literal = "123"
+        except SomeException as e:
+            pass
+        finally:
+            pass
